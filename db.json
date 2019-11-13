@@ -1,0 +1,54 @@
+{
+  "offers": [
+    {
+      "id": 1,
+      "location": "Varna",
+      "publishedBy": 2,
+      "description": "Едностаен апартамент ет.2",
+      "likes": 10,
+      "comments": [
+        {
+          "message": "Не става...",
+          "author": "Бай Ганьо"
+        },
+        {
+          "message": "Мачкай Гришо...",
+          "author": "Звездата"
+        }
+      ],
+      "price": 32000,
+      "isPremium": true,
+      "expirationDate": null
+    },
+    {
+      "id": 2,
+      "location": "Varna",
+      "publishedBy": 2,
+      "description": "Дворно място 700 кв.м",
+      "likes": 10,
+      "comments": [
+        {
+          "message": "Цената крайна ли е ?",
+          "author": "Георги Иванов"
+        },
+        {
+          "message": "Мачкай Гришо...",
+          "author": "Звездата"
+        }
+      ],
+      "price": 52000,
+      "isPremium": true,
+      "expirationDate": null
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

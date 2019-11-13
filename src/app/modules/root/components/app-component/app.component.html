@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row bg-light contact-line">
+  </div>
+  <div class="container" id="header-wrapper">
+    <div class="logo-wrapper">
+      <img src="http://www.imotidoverie.bg/upload/image/org/47_attachment_imoti_home_img.jpg" alt="">
+    </div>
+  </div>
+</div>
+<nav class="container navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['home']" routerLinkActive="active">Начало</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  [routerLink]="['offers']" routerLinkActive="active">Оферти</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  [routerLink]="['search']" routerLinkActive="active">Търсене</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  [routerLink]="['publish']" routerLinkActive="active">Публикуване</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  [routerLink]="['contacts']" routerLinkActive="active">Контакти</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<main class="container">
+  <router-outlet></router-outlet>
+</main>
+<footer class="container py-4 bg-light">
+  <div class="container text-center">
+    Angular course - October Copyright 2019
+  </div>
+</footer>
