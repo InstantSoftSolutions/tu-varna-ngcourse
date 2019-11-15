@@ -1,0 +1,10 @@
+<h4>{{ data.description}}</h4>
+<h5>{{ data.location}}</h5>
+<h5>{{ data.price}}</h5>
+<div *ngIf="data.comments.length !== 0; else noComments">
+    <mat-card *ngFor="let comment of data.comments">
+        {{comment.message}}
+        <mat-card-subtitle>{{comment.author}}</mat-card-subtitle> 
+    </mat-card>
+</div>
+<ng-template #noComments>There are no comments yet.</ng-template>

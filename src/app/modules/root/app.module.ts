@@ -13,6 +13,8 @@ import { ContactsComponent } from './components/contacts/contacts.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 import { OffersService } from './services/http-services/offers-service/offers.service';
+import { OfferDetailsComponent } from './components/offer-details/offer-details.component';
+import { MaterialModule } from './modules/material/material.module';
 
 @NgModule({
   declarations: [
@@ -21,16 +23,21 @@ import { OffersService } from './services/http-services/offers-service/offers.se
     SearchComponent,
     OffersComponent,
     ContactsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    OfferDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MaterialModule
   ],
   providers: [
     OffersService
+  ],
+  entryComponents: [
+    OfferDetailsComponent
   ],
   bootstrap: [AppComponent]
 })
