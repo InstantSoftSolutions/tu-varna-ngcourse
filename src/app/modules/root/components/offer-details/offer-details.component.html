@@ -1,0 +1,9 @@
+<div>
+    <h3>{{data.description}}</h3>
+    <h5>{{data.location}}</h5>
+    <h5>{{data.price}}</h5>
+    <mat-card *ngFor="let comment of data.comments">
+        <mat-card-title>{{comment.message}}</mat-card-title>
+        <mat-card-subtitle>{{comment.author}}</mat-card-subtitle>
+    </mat-card>
+</div>

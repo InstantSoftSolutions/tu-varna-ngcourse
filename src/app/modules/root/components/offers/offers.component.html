@@ -1,1 +1,17 @@
-<p>offers works!</p>
+{{syncOffers | json}}
+<div *ngIf="offers$ | async as offers; else loading">
+    <mat-card *ngFor="let offer of offers">
+        <mat-card-title>
+                {{offer.description}}
+        </mat-card-title>
+        <mat-card-subtitle>
+             {{offer.location}}
+        </mat-card-subtitle>
+        <mat-card-content>
+            <button class="btn btn-info" (click)="onOfferDetailsButtonClicked(offer)">Детайли</button>
+        </mat-card-content>
+    </mat-card>
+</div>
+<ng-template #loading>
+    Fetching data...
+</ng-template>
