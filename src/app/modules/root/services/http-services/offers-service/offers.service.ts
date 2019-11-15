@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+import { Observable } from 'rxjs';
+
 import { Offer } from './models/offer.model';
 import { Comment } from './models/comment.model';
 
@@ -8,17 +10,16 @@ import { BASE_URL } from 'src/app/utilities/consts';
 
 @Injectable()
 export class OffersService {
-  // TODO: Implements httpClient
   constructor(private httpClient: HttpClient) { }
 
   // GET method
-  getOffers(): void {
-    // TODO: Implement http request logic.
+  getOffers(): Observable<Offer[]> {
+    return this.httpClient.get<Offer[]>(BASE_URL + 'offers');
   }
 
   // GET method
-  getOfferById(id: string): void {
-    // TODO: Implement http request logic.
+  getOfferById(id: number): Observable<Offer> {
+    return this.httpClient.get<Offer>(BASE_URL + 'offers/' + id)
   }
 
   // GET method

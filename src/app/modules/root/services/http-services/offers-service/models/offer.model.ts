@@ -2,7 +2,7 @@ import { Comment } from './comment.model';
 import { Location } from './location.model';
 
 export class Offer {
-    id: string;
+    id: number;
     location: Location;
     publishedBy: number;
     description: string;
