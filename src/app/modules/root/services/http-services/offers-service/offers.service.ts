@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 import { Offer } from './models/offer.model';
 import { Comment } from './models/comment.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+import { BASE_URL } from 'src/app/utilities/consts';
+
+@Injectable()
 export class OffersService {
   // TODO: Implements httpClient
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   // GET method
   getOffers(): void {
