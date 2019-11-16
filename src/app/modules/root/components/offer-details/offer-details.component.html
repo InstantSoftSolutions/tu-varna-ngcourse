@@ -1,0 +1,14 @@
+<div>
+    <div>
+        <h4>{{data.description}}</h4>
+        <h4>{{data.location}}</h4>
+    </div>
+    <div>
+        <!--data is public variable in TS file and we can access all properties.-->
+        <mat-card *ngFor="let comment of data.comments">
+            <!--Comment model - message: string; author: string;-->
+            <mat-card-title>{{comment.message}}</mat-card-title>
+            <mat-card-subtitle>{{comment.author}}</mat-card-subtitle>
+        </mat-card>
+    </div>
+</div>

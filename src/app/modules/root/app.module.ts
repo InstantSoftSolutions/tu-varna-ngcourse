@@ -12,6 +12,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { OffersService } from './services/http-services/offers-service/offers.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material/material.module';
+import { OfferDetailsComponent } from './components/offer-details/offer-details.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MaterialModule } from './modules/material/material.module';
     SearchComponent,
     OffersComponent,
     ContactsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    OfferDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +33,9 @@ import { MaterialModule } from './modules/material/material.module';
   ],
   providers: [
     OffersService
+  ],
+  entryComponents: [
+    OfferDetailsComponent
   ],
   bootstrap: [AppComponent]
 })

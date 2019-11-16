@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { OffersService } from '../../services/http-services/offers-service/offers.service';
 import { Observable } from 'rxjs';
 import { Offer } from '../../services/http-services/offers-service/models/offer.model';
+import { delay } from 'rxjs/operators';
+import { OfferDetailsComponent } from '../offer-details/offer-details.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-offers',
@@ -10,14 +13,16 @@ import { Offer } from '../../services/http-services/offers-service/models/offer.
 })
 export class OffersComponent implements OnInit {
   offers$: Observable<Offer[]>;
-  constructor(private offersService: OffersService) { }
+  constructor(private offersService: OffersService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.offers$ = this.offersService.getOffers();
+    this.offers$ = this.offersService.getOffers().pipe(delay(5000));
   }
 
   onOfferDetailsButtonClicked(model: Offer): void {
-    console.log(model);
+    let dialogRef = this.dialog.open(OfferDetailsComponent, {
+      data: model,
+    });
   }
 
 }
