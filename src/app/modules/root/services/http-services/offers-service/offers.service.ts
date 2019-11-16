@@ -2,15 +2,17 @@ import { Injectable } from '@angular/core';
 
 import { Offer } from './models/offer.model';
 import { Comment } from './models/comment.model';
+import { HttpClient } from '@angular/common/http';
+import { BASE_URL } from 'src/app/utilities/consts';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class OffersService {
-  // TODO: Implements httpClient
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   // GET method
-  getOffers(): void {
-    // TODO: Implement http request logic.
+  getOffers(): Observable<Offer[]> {
+    return this.httpClient.get<Offer[]>(BASE_URL + 'offers');
   }
 
   // GET method
