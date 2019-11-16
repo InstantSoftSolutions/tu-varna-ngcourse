@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { OffersService } from '../../services/http-services/offers-service/offers.service';
+import { Observable } from 'rxjs';
+import { Offer } from '../../services/http-services/offers-service/models/offer.model';
 
 @Component({
   selector: 'app-offers',
@@ -6,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./offers.component.scss']
 })
 export class OffersComponent implements OnInit {
+  offers$: Observable<Offer[]>;
+  constructor(private offersService: OffersService) { }
 
-  constructor() { }
+  ngOnInit(): void {
+    this.offers$ = this.offersService.getOffers();
+  }
 
-  ngOnInit() {
+  onOfferDetailsButtonClicked(model: Offer): void {
+    console.log(model);
   }
 
 }

@@ -1,1 +1,14 @@
-<p>offers works!</p>
+<div *ngIf="offers$ | async as off; else loading">
+    <div class="card" *ngFor="let offer of off">
+        <div class="card-body">
+            <h4 class="card-title">{{offer.description}}</h4>
+            <p class="card-text">{{offer.location}}</p>
+            <div class="form-group">
+                <button (click)="onOfferDetailsButtonClicked(offer)">Детайли</button>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #loading>
+    Fetching data...
+</ng-template>
