@@ -1,3 +1,10 @@
+<div>
+    <form [formGroup]="idForm">
+        <div><input type="number" formControlName="id">
+        <button type="button" (click)="onDoneButtonClicked()">Done</button>
+        </div>
+    </form>
+</div>
 <div *ngIf="offers$ | async as off; else loading">
     <div class="card" *ngFor="let offer of off">
         <div class="card-body">

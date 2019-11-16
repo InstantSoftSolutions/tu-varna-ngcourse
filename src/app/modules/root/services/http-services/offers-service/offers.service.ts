@@ -16,8 +16,8 @@ export class OffersService {
   }
 
   // GET method
-  getOfferById(id: string): void {
-    // TODO: Implement http request logic.
+  getOfferById(id: number): Observable<Offer> {
+    return this.httpClient.get<Offer>(BASE_URL + 'offers/' + id);
   }
 
   // GET method
