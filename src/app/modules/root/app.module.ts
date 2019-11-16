@@ -8,6 +8,8 @@ import { SearchComponent } from './components/search/search.component';
 import { OffersComponent } from './components/offers/offers.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { OffersService } from './services/http-services/offers-service/offers.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,9 +22,12 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    OffersService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

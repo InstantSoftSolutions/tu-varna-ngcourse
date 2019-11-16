@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { Offer } from './models/offer.model';
 import { Comment } from './models/comment.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class OffersService {
   // TODO: Implements httpClient
   constructor() { }
