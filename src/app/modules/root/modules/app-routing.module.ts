@@ -7,6 +7,8 @@ import { HomeComponent } from '../components/home/home.component';
 import { SearchComponent } from '../components/search/search.component';
 import { OffersComponent } from '../components/offers/offers.component';
 import { ContactsComponent } from '../components/contacts/contacts.component';
+import { LoginComponent } from '../components/login/login.component';
+import { RegisterComponent } from '../components/register/register.component';
 
 
 const routes: Routes = [
@@ -27,6 +29,12 @@ const routes: Routes = [
   },
   {
     path: 'contacts', component: ContactsComponent
+  },
+  {
+    path: 'login', component: LoginComponent
+  },
+  {
+    path: 'register', component: RegisterComponent
   },
   {
     path: "**", component: PageNotFoundComponent

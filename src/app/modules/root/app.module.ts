@@ -15,6 +15,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { OffersService } from './services/http-services/offers-service/offers.service';
 import { OfferDetailsComponent } from './components/offer-details/offer-details.component';
 import { MaterialModule } from './modules/material/material.module';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { MaterialModule } from './modules/material/material.module';
     OffersComponent,
     ContactsComponent,
     PageNotFoundComponent,
-    OfferDetailsComponent
+    OfferDetailsComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
