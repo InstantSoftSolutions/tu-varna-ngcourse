@@ -17,6 +17,8 @@ import { OfferDetailsComponent } from './components/offer-details/offer-details.
 import { MaterialModule } from './modules/material/material.module';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ContactsService } from './services/http-services/contact-service/contacts.service';
 
 @NgModule({
   declarations: [
@@ -34,11 +36,14 @@ import { RegisterComponent } from './components/register/register.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     MaterialModule
   ],
   providers: [
-    OffersService
+    OffersService,
+    ContactsService
   ],
   entryComponents: [
     OfferDetailsComponent
