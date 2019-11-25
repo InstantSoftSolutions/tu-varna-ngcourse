@@ -19,6 +19,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContactsService } from './services/http-services/contact-service/contacts.service';
+import { AccountService } from './services/http-services/account-service/account.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ContactsService } from './services/http-services/contact-service/contac
   ],
   providers: [
     OffersService,
-    ContactsService
+    ContactsService,
+    AccountService
   ],
   entryComponents: [
     OfferDetailsComponent

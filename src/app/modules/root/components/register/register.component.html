@@ -1,1 +1,33 @@
-<p>register works!</p>
+<div class="container">
+    <form [formGroup]="registerForm">
+        <div class="form-group">
+            <label for="name">Име</label>
+            <input type="text" class="form-control" id="name" formControlName="name">
+        </div>
+        <div class="form-group">
+            <label for="username">Потребителско име</label>
+            <input type="text" class="form-control" id="username" formControlName="username">
+        </div>
+        <div class="form-group">
+            <label for="email">Имейл</label>
+            <input type="email" class="form-control" id="email" formControlName="email">
+        </div>
+        <div class="form-group">
+            <label for="password">Парола</label>
+            <input type="password" class="form-control" id="password" formControlName="password">
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">Повтори парола</label>
+            <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword">
+        </div>
+        <div class="form-group">
+            <label for="website">Уеб сайт</label>
+            <input type="text" class="form-control" id="website" formControlName="website">
+        </div>
+        <div class="form-group">
+            <label for="about">Относно</label>
+            <input type="text" class="form-control" id="about" formControlName="about">
+        </div>
+        <button type="button" class="btn btn-primary" (click)="onRegisterButtonClicked()">Регистрация</button>
+    </form>
+</div>
