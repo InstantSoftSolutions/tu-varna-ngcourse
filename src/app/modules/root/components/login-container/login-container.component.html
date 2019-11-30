@@ -1,0 +1,11 @@
+<!-- https://material.angular.io/components/tabs/overview -->
+<div class="container">
+    <mat-tab-group (selectedTabChange)="onSelectedTabChanged($event)">
+        <mat-tab label="Вписване">
+            <app-login [shouldClearForm]="shouldClearLogin"></app-login>
+        </mat-tab>
+        <mat-tab label="Регистрация">
+            <app-register [shouldClearForm]="shouldClearRegister"></app-register>
+        </mat-tab>
+    </mat-tab-group>
+</div>

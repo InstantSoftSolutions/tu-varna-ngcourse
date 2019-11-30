@@ -17,6 +17,9 @@ import { OfferDetailsComponent } from './components/offer-details/offer-details.
 
 import { ContactsService } from './services/http-services/contact-service/contacts.service';
 import { OffersService } from './services/http-services/offers-service/offers.service';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginContainerComponent } from './components/login-container/login-container.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { OffersService } from './services/http-services/offers-service/offers.se
     OffersComponent,
     ContactsComponent,
     PageNotFoundComponent,
-    OfferDetailsComponent
+    OfferDetailsComponent,
+    LoginComponent,
+    RegisterComponent,
+    LoginContainerComponent
   ],
   imports: [
     BrowserModule,
