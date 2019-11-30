@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+import { ContactsService } from '../../services/http-services/contact-service/contacts.service';
+import { Subscription } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
+
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
@@ -14,7 +18,13 @@ export class ContactsComponent implements OnInit {
 
   */
   contactForm: FormGroup; // Необходима ни е, за да я закачим за темплейта след малко.
-  constructor(private formBuilder: FormBuilder) { }
+
+  // Чрез използване на async pipe, а вторият е чрез Subscription контейнер
+  private subscription: Subscription;
+
+  constructor(private formBuilder: FormBuilder, private contactService: ContactsService) {
+    this.subscription = new Subscription();
+  }
 
   ngOnInit(): void {
     this.contactForm = this.generateContactForm();
@@ -22,7 +32,15 @@ export class ContactsComponent implements OnInit {
 
   onSendButtonClicked(): void {
     if (this.contactForm.valid) {
-
+      // Следва да се направи заявката към сървъра
+      this.subscription.add(this.contactService.sendMessage(this.contactForm.value)
+      .subscribe( (response: any) => {
+        // Тук имаме данни, с които да работим. Заявката е изпълнена успешно. 
+        console.log(response);
+        this.contactForm.reset(); //Изчиства съдържанието на полетата, като запазва техните валидации.
+      }, (errorResponse: HttpErrorResponse) => {
+        console.log(errorResponse.message);
+      }));
     }
     else {
       this.contactForm.markAllAsTouched(); // Активираме механизма за валидиране на формата.
