@@ -1,1 +1,45 @@
-<p>contacts works!</p>
+<div class="container">
+    <div class="row">
+        <h3 class="page-title">Контакти</h3> 
+        <!--Ще използваме този клас за всички страници оттук нататък. Той ще прави една черта под името-->
+    </div>
+    <div class="row">
+        <div class="col">
+            <!-- ЩЕ използваме готова вградена карта - линка за нея е: https://www.embedgooglemap.net/-->
+            <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=technical%20university%20varna&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.whatismyip-address.com">what my ip address ipv4</a></div><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div>
+        </div>
+        <div class="col">
+            <!--Тук ще си добавим контактната форма-->
+            <form [formGroup]="contactForm">
+                <!--Тук ще използвам няколко команди от добавката със снипети, която сложихме преди 1-2 седмици-->
+                <div class="form-group row">
+                  <label for="subject" class="col-12">Тема:*</label>
+                  <input type="text" class="form-control col-12 col-sm-6" id="subject" formControlName="subject">
+                  <div class="error-message-format text-danger" *ngIf="contactForm.get('subject').hasError('required') && contactForm.get('subject').touched"> 
+                    Полето за въвеждана на тема е задължително.
+                  </div>
+                </div>
+                <div class="form-group row">
+                    <label for="author" class="col-12">Автор:</label>
+                    <input type="text" class="form-control col-12 col-sm-6" id="author" formControlName="author">
+                  </div>
+                <div class="form-group row">
+                  <label for="message" class="col-12">Съобщение:*</label>
+                  <textarea class="form-control col-12 col-sm-6" name="" id="message" rows="4" formControlName="message"></textarea>
+                  <div class="error-message-format text-danger" *ngIf="contactForm.get('message').hasError('required') && contactForm.get('message').touched"> 
+                        Полето за въвеждана на съобщение е задължително.
+                      </div>
+                </div>
+                <div class="form-group row">
+                    <!--За да използваме клик събитието на бутона и да не се задейства механизма на Angular за
+                    изпращане на формата трябва да сменим типа на бутона да бъде button.
+                    -->
+                    <button type="button" (click)="onSendButtonClicked()">Изпрати</button> 
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <!--Линкове за социални медии и телефон-->
+    </div>
+</div>
