@@ -8,7 +8,11 @@ import { SearchComponent } from '../components/search/search.component';
 import { OffersComponent } from '../components/offers/offers.component';
 import { ContactsComponent } from '../components/contacts/contacts.component';
 import { LoginContainerComponent } from '../components/login-container/login-container.component';
+import { AuthGuard } from './guards/auth.guard';
+import { UserRoleGuard } from './guards/user-role.guard';
+import { AdminRoleGuard } from './guards/admin-role.guard';
 
+// Check for more details about lazy loading feature modules: https://angular.io/guide/lazy-loading-ngmodules
 
 const routes: Routes = [
   {
@@ -31,6 +35,12 @@ const routes: Routes = [
   },
   {
     path: 'signin', component: LoginContainerComponent
+  },
+  {
+    path: 'user', loadChildren: () => import('../../user/user.module').then(m => m.UserModule), canLoad: [AuthGuard, UserRoleGuard]
+  },
+  {
+    path: 'admin', loadChildren: () => import('../../admin/admin.module').then(m => m.AdminModule), canLoad: [AuthGuard, AdminRoleGuard]
   },
   {
     path: "**", component: PageNotFoundComponent

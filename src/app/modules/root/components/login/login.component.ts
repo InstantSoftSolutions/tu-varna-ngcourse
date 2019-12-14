@@ -2,6 +2,7 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AccountService } from '../../services/http-services/account-service/account.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { TokenService } from 'src/app/modules/shared/services/token/token.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit, OnChanges {
   @Input() shouldClearForm: boolean;
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private accountService: AccountService) {}
+  constructor(private formBuilder: FormBuilder, private accountService: AccountService, private tokenService: TokenService) {}
 
   ngOnInit(): void {
     this.loginForm = this.generateLoginForm();
@@ -27,8 +28,9 @@ export class LoginComponent implements OnInit, OnChanges {
   onLoginButtonClicked(): void {
     if (this.loginForm.valid) {
       this.accountService.login(this.loginForm.value)
-      .subscribe((response: any) => {
-        console.log(response);
+      .subscribe((response: { accessToken: string, tokenType: string}) => {
+        this.tokenService.setToken(response.accessToken);
+
         this.loginForm.reset();
       }, (errorResponse: HttpErrorResponse) => {
         console.log(errorResponse.message);
