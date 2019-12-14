@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { ContactsService } from '../../services/http-services/contact-service/contacts.service';
@@ -10,7 +10,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.scss']
 })
-export class ContactsComponent implements OnInit {
+export class ContactsComponent implements OnInit, OnDestroy {
   /*
     Ще използваме реактивни форми. Следователно е важно да си добавим модулите за тях.
     Тъй като компонента, в който работим е част от app.module, то двата модула, с които си добавяме сървисите и
@@ -45,6 +45,10 @@ export class ContactsComponent implements OnInit {
     else {
       this.contactForm.markAllAsTouched(); // Активираме механизма за валидиране на формата.
     }
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe(); // Изчиства паметта на браузъра, тази част, която е свързана с компонента!
   }
 
   private generateContactForm(): FormGroup {

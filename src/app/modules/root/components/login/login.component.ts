@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AccountService } from '../../services/http-services/account-service/account.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +12,7 @@ export class LoginComponent implements OnInit, OnChanges {
   @Input() shouldClearForm: boolean;
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private accountService: AccountService) {}
 
   ngOnInit(): void {
     this.loginForm = this.generateLoginForm();
@@ -24,7 +26,13 @@ export class LoginComponent implements OnInit, OnChanges {
 
   onLoginButtonClicked(): void {
     if (this.loginForm.valid) {
-
+      this.accountService.login(this.loginForm.value)
+      .subscribe((response: any) => {
+        console.log(response);
+        this.loginForm.reset();
+      }, (errorResponse: HttpErrorResponse) => {
+        console.log(errorResponse.message);
+      })
     }
     else {
       this.loginForm.markAllAsTouched();

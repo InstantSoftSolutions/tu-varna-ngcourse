@@ -14,12 +14,13 @@ import { OffersComponent } from './components/offers/offers.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { OfferDetailsComponent } from './components/offer-details/offer-details.component';
-
-import { ContactsService } from './services/http-services/contact-service/contacts.service';
-import { OffersService } from './services/http-services/offers-service/offers.service';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginContainerComponent } from './components/login-container/login-container.component';
+
+import { AccountService } from './services/http-services/account-service/account.service';
+import { ContactsService } from './services/http-services/contact-service/contacts.service';
+import { OffersService } from './services/http-services/offers-service/offers.service';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { LoginContainerComponent } from './components/login-container/login-cont
     MaterialModule
   ],
   providers: [
+    AccountService,
     ContactsService,
     OffersService
   ],
